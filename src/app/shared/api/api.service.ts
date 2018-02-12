@@ -7,16 +7,13 @@ import { ValidationService } from '../validation/validation.service';
 import { Observable } from 'rxjs/Observable';
 import { ApiAction } from './api-action.interface';
 import { environment } from '../../../environments/environment';
-import { ApiMocksService } from './api-mocks.service';
 
 @Injectable()
 export class ApiService {
     apiUrl = environment.apiUrl;
-    isMocked = environment.isMocked || false;
 
     constructor(
         private httpClient: HttpClient,
-        private apiMocks: ApiMocksService,
         private validationService: ValidationService) {
     }
 
@@ -55,10 +52,6 @@ export class ApiService {
         }
 
         let request: Observable<object> = null;
-
-        if (this.isMocked) {
-            return this.apiMocks.mock(action, data);
-        }
 
         if (action.parseRequest) {
             data = action.parseRequest(data);

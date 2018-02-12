@@ -5,6 +5,7 @@ import { SharedModule } from './shared/shared.module';
 import { ApiService } from './shared/api/api.service';
 import { ValidationService } from './shared/validation/validation.service';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
     imports: [
         BrowserModule,
         SharedModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     exports: [
         AppRoutingModule

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -6,13 +7,14 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./stock.component.scss']
 })
 export class StockComponent implements OnInit {
-
     @ViewChild('chart') el: ElementRef;
+    stockData: any;
 
-    constructor() {
-    }
+    constructor(private route: ActivatedRoute) {}
 
     ngOnInit() {
+        this.stockData = this.route.snapshot.data['stockData'];
+        console.log(this.stockData);
         this.basicChart();
     }
 
