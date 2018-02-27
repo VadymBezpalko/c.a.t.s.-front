@@ -13,10 +13,19 @@ export class StockDataResolver implements Resolve<any> {
     }
 }
 
+@Injectable()
+export class TwitterDataResolver implements Resolve<any> {
+    constructor(private api: ApiService) {}
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        return this.api.run('getTwitterData');
+    }
+}
+
 export const routes: Routes = [
     { path: '', component: ChartsComponent, children: [
             { path: '', redirectTo: 'stock' },
-            { path: 'stock', component: StockComponent, resolve: {stockData: StockDataResolver} }
+            { path: 'stock', component: StockComponent, resolve: {stockData: StockDataResolver, twitterData: TwitterDataResolver} }
         ]
     }
 ];
@@ -24,6 +33,6 @@ export const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule],
-    providers: [StockDataResolver]
+    providers: [StockDataResolver, TwitterDataResolver]
 })
 export class ChartsRoutingModule {}

@@ -6,6 +6,9 @@ export class ChartsApiActions implements ApiActionContainer {
     actions: ApiAction[] = [
         {
             action: 'getStockData', method: 'GET', url: 'stock'
+        },
+        {
+            action: 'getTwitterData', method: 'GET', url: 'twitter'
         }
     ];
 }
