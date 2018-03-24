@@ -9,7 +9,7 @@ export class StockDataResolver implements Resolve<any> {
     constructor(private api: ApiService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        return this.api.run('getStockData', { sortBy: 'date' });
+        return this.api.run('getStockData', { sortBy: route.paramMap.get('sortBy'), symbol: route.paramMap.get('symbol') });
     }
 }
 
@@ -18,16 +18,12 @@ export class TwitterDataResolver implements Resolve<any> {
     constructor(private api: ApiService) {}
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        return this.api.run('getTwitterData');
+        return this.api.run('getTwitterData', { search_term: route.paramMap.get('search_term') });
     }
 }
 
 export const routes: Routes = [
-    { path: '', component: ChartsComponent, children: [
-            { path: '', redirectTo: 'stock' },
-            { path: 'stock', component: StockComponent, resolve: {stockData: StockDataResolver, twitterData: TwitterDataResolver} }
-        ]
-    }
+    { path: '', component: ChartsComponent }
 ];
 
 @NgModule({

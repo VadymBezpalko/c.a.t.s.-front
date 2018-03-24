@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<div class="row justify-content-center">
+    <div class="btn-group btn-group-toggle options" ngbRadioGroup name="radioBasic" ngDefaultControl [(ngModel)]="selectedOption">
+        <label ngbButtonLabel *ngFor="let option of options" class="btn-primary">
+            <input ngbButton type="radio" (click)="getChartData(option)"> {{option.twitterSearchTerm}}
+        </label>
+    </div>
+</div>
+<app-stock *ngIf="stockData && twitterData" [stockData]="stockData" [twitterData]="twitterData"></app-stock>

@@ -6,6 +6,7 @@ import { ApiService } from './shared/api/api.service';
 import { ValidationService } from './shared/validation/validation.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
         BrowserModule,
         SharedModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        NgbModule.forRoot()
     ],
     exports: [
         AppRoutingModule

@@ -8,6 +8,8 @@ import { ChartsRoutingModule } from './charts-routing.module';
 import { ApiService } from '../shared/api/api.service';
 import { ApiActionContainer } from '../shared/api/api-action-container.interface';
 import { API_ACTIONS } from '../shared/api/api-actions.constant';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -16,10 +18,12 @@ import { API_ACTIONS } from '../shared/api/api-actions.constant';
     ],
     imports: [
         CommonModule,
-        ChartsRoutingModule
+        ChartsRoutingModule,
+        FormsModule,
+        NgbModule
     ],
     exports: [
-        ChartsRoutingModule
+        ChartsRoutingModule,
     ],
     providers: [
         ApiActionsProviderFactory.create(ChartsApiActions)

@@ -8,7 +8,7 @@ export class ChartsApiActions implements ApiActionContainer {
             action: 'getStockData', method: 'GET', url: 'stock'
         },
         {
-            action: 'getTwitterData', method: 'GET', url: 'twitter'
+            action: 'getTwitterData', method: 'GET', url: 'twitter/processed_messages'
         }
     ];
 }

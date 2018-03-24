@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,10 +6,10 @@ import { ActivatedRoute } from '@angular/router';
     templateUrl: './stock.component.html',
     styleUrls: ['./stock.component.scss']
 })
-export class StockComponent implements OnInit {
+export class StockComponent implements OnInit, OnChanges {
     @ViewChild('chart') el: ElementRef;
-    stockData: any;
-    twitterData: any;
+    @Input() stockData: any;
+    @Input() twitterData: any;
     x: any;
     x2: any;
     y: any;
@@ -19,12 +19,19 @@ export class StockComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.renderChart();
+    }
+
+    ngOnChanges(changes) {
+        console.log(changes);
+        this.renderChart();
+    }
+
+    renderChart() {
         this.x = [];
         this.x2 = [];
         this.y = [];
         this.y2 = [];
-        this.stockData = this.route.snapshot.data['stockData'];
-        this.twitterData = this.route.snapshot.data['twitterData'];
         this.stockData.forEach((item) => {
             this.x.push(item.date);
             this.y.push(item.close);
@@ -72,6 +79,6 @@ export class StockComponent implements OnInit {
             }
         };
 
-        Plotly.plot(element, data, style);
+        Plotly.newPlot(element, data, style);
     }
 }

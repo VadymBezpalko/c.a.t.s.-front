@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/charts/stock', pathMatch: 'full'},
+    { path: '', redirectTo: '/charts', pathMatch: 'full'},
     { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-    { path: '**', redirectTo: '/charts/stock' }
+    { path: '**', redirectTo: '/charts' }
 ];
 
 @NgModule({
