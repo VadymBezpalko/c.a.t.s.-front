@@ -10,6 +10,7 @@ export class StockComponent implements OnInit, OnChanges {
     @ViewChild('chart') el: ElementRef;
     @Input() stockData: any;
     @Input() twitterData: any;
+    @Input() legends: any;
     x: any;
     x2: any;
     y: any;
@@ -49,7 +50,7 @@ export class StockComponent implements OnInit, OnChanges {
         const trace1 = {
             type: 'scatter',
             mode: 'lines',
-            name: 'BZWBK close value',
+            name: this.legends.stockSymbol + ' close value',
             x: this.x,
             y: this.y,
             line: {color: '#02ae10'}
@@ -58,7 +59,7 @@ export class StockComponent implements OnInit, OnChanges {
         const trace2 = {
             type: 'scatter',
             mode: 'lines',
-            name: 'BZWBK twitter mood',
+            name: this.legends.twitterSearchTerm + ' twitter mood',
             x: this.x2,
             y: this.y2,
             line: {color: '#ff0043'},
@@ -68,7 +69,7 @@ export class StockComponent implements OnInit, OnChanges {
         const data = [trace1, trace2];
 
         const style = {
-            title: 'Test data',
+            title: this.legends.twitterSearchTerm + ' data',
             yaxis: {title: 'BZWBK stock data'},
             yaxis2: {
                 title: 'BZWBK twitter mood',
