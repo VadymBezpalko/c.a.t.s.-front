@@ -69,10 +69,10 @@ export class StockComponent implements OnInit, OnChanges {
         const data = [trace1, trace2];
 
         const style = {
-            title: this.legends.twitterSearchTerm + ' data',
-            yaxis: {title: 'BZWBK stock data'},
+            title: this.legends.twitterSearchTerm,
+            yaxis: {title: this.legends.twitterSearchTerm + ' stock data'},
             yaxis2: {
-                title: 'BZWBK twitter mood',
+                title: this.legends.twitterSearchTerm + ' twitter mood',
                 titlefont: {color: 'rgb(148, 103, 189)'},
                 tickfont: {color: 'rgb(148, 103, 189)'},
                 overlaying: 'y',

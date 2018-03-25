@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="btn-group btn-group-toggle options" ngbRadioGroup name="radio" ngDefaultControl [(ngModel)]="selectedOption">
         <label ngbButtonLabel *ngFor="let option of options" class="btn-primary">
-            <input ngbButton type="radio" (click)="getChartData(option)"> {{option.twitterSearchTerm}}
+            <input ngbButton type="radio" (click)="getChartData(option)" [value]="option"> {{option.twitterSearchTerm}}
         </label>
     </div>
 </div>
