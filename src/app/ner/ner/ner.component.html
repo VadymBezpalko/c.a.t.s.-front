@@ -1,0 +1,21 @@
+<div class="row justify-content-center">
+    <div class="btn-group btn-group-toggle options" ngbRadioGroup name="radio" ngDefaultControl [(ngModel)]="selectedOption">
+        <label ngbButtonLabel *ngFor="let option of options" class="btn-primary">
+            <input ngbButton type="radio" (click)="getNERData(option)" [value]="option"> {{option.search_term}}
+        </label>
+    </div>
+</div>
+<div class="row justify-content-center table">
+    <ngx-datatable
+        *ngIf="NERDataRows"
+        class="bootstrap expandable"
+        [rows]="NERDataRows"
+        [columns]="NERDataColumns"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="50"
+        [limit]="14"
+        [reorderable]="reorderable"
+        [loadingIndicator]="loadingIndicator"
+    ></ngx-datatable>
+</div>

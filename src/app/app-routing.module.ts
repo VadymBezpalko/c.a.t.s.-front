@@ -4,6 +4,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
     { path: '', redirectTo: '/charts', pathMatch: 'full'},
     { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
+    { path: 'ner', loadChildren: './ner/ner.module#NerModule' },
     { path: '**', redirectTo: '/charts' }
 ];
 

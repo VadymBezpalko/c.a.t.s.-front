@@ -1,3 +1,21 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/gcat.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            C.A.T.S
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="/charts" routerLinkActive="active">Charts</a>
+                <a class="nav-item nav-link" routerLink="/ner" routerLinkActive="active">NER</a>
+                <a class="nav-item nav-link" routerLink="/control" routerLinkActive="active">Control panel</a>
+            </div>
+        </div>
+    </nav>
+</header>
 <div class="container-fluid">
     <router-outlet></router-outlet>
 </div>
