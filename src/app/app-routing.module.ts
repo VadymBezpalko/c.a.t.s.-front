@@ -5,6 +5,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/charts', pathMatch: 'full'},
     { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
     { path: 'ner', loadChildren: './ner/ner.module#NerModule' },
+    { path: 'control-panel', loadChildren: './control-panel/control-panel.module#ControlPanelModule' },
     { path: '**', redirectTo: '/charts' }
 ];
 

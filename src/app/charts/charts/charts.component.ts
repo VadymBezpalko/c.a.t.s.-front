@@ -26,7 +26,7 @@ export class ChartsComponent implements OnInit {
 
     ngOnInit() {
         this.from = '2018-03-01';
-        this.to = '2018-03-22';
+        this.to = '2018-03-31';
         this.getChartData(this.options[0]);
     }
 
