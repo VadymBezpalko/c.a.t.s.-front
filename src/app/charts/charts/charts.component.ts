@@ -10,6 +10,7 @@ export class ChartsComponent implements OnInit {
     stockData: any;
     twitterData: any;
     selectedOption: any;
+    correlationIndex: any;
     options = [
         {twitterSearchTerm: 'bzwbk', stockSymbol: 'bzw'},
         {twitterSearchTerm: 'orlen', stockSymbol: 'pkn'},
@@ -39,12 +40,22 @@ export class ChartsComponent implements OnInit {
         }).subscribe(stockData => {
             this.stockData = stockData;
         });
+
         this.api.run('getTwitterData', {
             search_term: selectedOption.twitterSearchTerm,
             from: this.from,
             to: this.to
         }).subscribe(twitterData => {
             this.twitterData = twitterData;
+        });
+
+        this.api.runWith({
+            search_term: selectedOption.twitterSearchTerm,
+            symbol: selectedOption.stockSymbol,
+            from: this.from,
+            to: this.to
+        }, 'getCorrelationIndex').subscribe(index => {
+            this.correlationIndex = index;
         });
     }
 
