@@ -39,7 +39,7 @@ export class StockComponent implements OnInit, OnChanges {
         });
         this.twitterData.forEach((item) => {
             this.x2.push(item.created_at);
-            this.y2.push(item.summary_sentimental);
+            this.y2.push(item.average_sentimental);
         });
         this.basicChart();
     }

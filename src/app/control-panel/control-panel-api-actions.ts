@@ -12,6 +12,9 @@ export class NerApiActions implements ApiActionContainer {
         },
         {
             action: 'makeNER', method: 'GET', url: 'named_entity/process'
+        },
+        {
+            action: 'makeTBNER', method: 'GET', url: 'named_entity/tb_process'
         }
     ];
 }

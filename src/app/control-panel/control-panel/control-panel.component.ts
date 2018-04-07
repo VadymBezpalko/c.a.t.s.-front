@@ -9,7 +9,7 @@ import { forkJoin } from 'rxjs/observable/forkJoin';
 })
 export class ControlPanelComponent {
     startDate = '2018-03-01';
-    endDate = '2018-03-31';
+    endDate = '2018-04-06';
     stockCompanies = [
         'bzw',
         'pkn',
@@ -41,6 +41,18 @@ export class ControlPanelComponent {
         this.searchSymbols.forEach(company => {
             requestList.push(
                 this.api.run( 'makeNER', {search_term: company})
+            );
+        });
+        forkJoin(requestList).subscribe(results => {
+            console.log('done', results);
+        });
+    }
+
+    makeTBNER() {
+        const requestList = [];
+        this.searchSymbols.forEach(company => {
+            requestList.push(
+                this.api.run( 'makeTBNER', {search_term: company})
             );
         });
         forkJoin(requestList).subscribe(results => {
