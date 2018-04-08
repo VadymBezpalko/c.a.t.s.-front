@@ -1,0 +1,28 @@
+<div class="controls row justify-content-center">
+    <form class="form-inline">
+        <div class="form-group">
+            <input class="form-control" name="from" [(ngModel)]="from" placeholder="yyyy-mm-dd">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="to" [(ngModel)]="to" placeholder="yyyy-mm-dd">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="symbol" [(ngModel)]="symbol">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="getMessages()">Get messages</button>
+        </div>
+    </form>
+</div>
+<div class="box row justify-content-center table">
+    <div class="card" *ngFor="let message of messages">
+        <div class="card-header">
+            {{message.created_at}} - {{message.retweet_count}} retweets
+        </div>
+        <div class="card-body">
+            <strong>Sentiment: </strong> {{message.sentimental.polarity}}
+            <p class="card-text"><strong>Text:</strong> {{message.text}}</p>
+            <p class="card-text"><strong>Translated:</strong> {{message.translated_text}}</p>
+        </div>
+    </div>
+</div>
