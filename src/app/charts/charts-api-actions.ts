@@ -11,6 +11,9 @@ export class ChartsApiActions implements ApiActionContainer {
             action: 'getTwitterData', method: 'GET', url: 'twitter/processed_messages'
         },
         {
+            action: 'getDifferentTwitterData', method: 'GET', url: 'twitter/different_messages'
+        },
+        {
             action: 'getCorrelationIndex', method: 'POST', url: 'twitter/correlation'
         }
     ];

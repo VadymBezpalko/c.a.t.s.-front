@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, Resolve, RouterModule, RouterStateSnapshot, Rou
 import { ChartsComponent } from './charts/charts.component';
 import { StockComponent } from './stock/stock.component';
 import { ApiService } from '../shared/api/api.service';
+import { StockSecondComponent } from './stock-second/stock-second.component';
 
 @Injectable()
 export class StockDataResolver implements Resolve<any> {
@@ -23,7 +24,8 @@ export class TwitterDataResolver implements Resolve<any> {
 }
 
 export const routes: Routes = [
-    { path: '', component: ChartsComponent }
+    { path: '', component: ChartsComponent },
+    { path: 'second', component: StockSecondComponent },
 ];
 
 @NgModule({

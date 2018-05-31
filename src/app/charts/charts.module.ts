@@ -10,11 +10,13 @@ import { ApiActionContainer } from '../shared/api/api-action-container.interface
 import { API_ACTIONS } from '../shared/api/api-actions.constant';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StockSecondComponent } from './stock-second/stock-second.component';
 
 @NgModule({
     declarations: [
         ChartsComponent,
-        StockComponent
+        StockComponent,
+        StockSecondComponent
     ],
     imports: [
         CommonModule,
