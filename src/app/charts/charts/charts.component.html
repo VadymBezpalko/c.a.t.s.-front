@@ -15,5 +15,5 @@
         </div>
     </form>
 </div>
-<div class="row justify-content-center" *ngIf="correlationIndex">{{correlationIndex}}</div>
+<div class="row justify-content-center" *ngIf="correlationIndex"><strong>Pearson correlation coefficient: </strong><p>&nbsp;</p>{{correlationIndex}}</div>
 <app-stock *ngIf="stockData && twitterData && selectedOption" [stockData]="stockData" [twitterData]="twitterData" [legends]="selectedOption"></app-stock>

@@ -15,6 +15,9 @@ export class ControlPanelApiActions implements ApiActionContainer {
         },
         {
             action: 'makeTBNER', method: 'GET', url: 'named_entity/tb_process'
+        },
+        {
+            action: 'getRetweetStats', method: 'GET', url: 'stats/retweets'
         }
     ];
 }
