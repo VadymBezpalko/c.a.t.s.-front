@@ -120,7 +120,12 @@ export class ControlPanelComponent implements OnInit{
         const layout = {
             yaxis: {
                 type: 'log',
-                autorange: true
+                autorange: true,
+                title: 'Liczba wiadomości'
+
+            },
+            xaxis: {
+                title: 'Liczba retweetów'
             }
         };
 
