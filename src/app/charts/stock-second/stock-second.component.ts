@@ -12,7 +12,9 @@ export class StockSecondComponent implements OnInit {
     stockData: any;
     twitterData: any;
     selectedOption: any;
-    correlationIndex: any;
+    allMessagesCorrelation;
+    positiveMessagesCorrelation;
+    negativeMessagesCorrelation;
     options = [
         {twitterSearchTerm: 'bzwbk', stockSymbol: 'bzw'},
         {twitterSearchTerm: 'orlen', stockSymbol: 'pkn'},
@@ -103,14 +105,33 @@ export class StockSecondComponent implements OnInit {
             this.basicChart();
         });
 
-        // this.api.runWith({
-        //     search_term: selectedOption.twitterSearchTerm,
-        //     symbol: selectedOption.stockSymbol,
-        //     from: this.from,
-        //     to: this.to
-        // }, 'getCorrelationIndex').subscribe(index => {
-        //     this.correlationIndex = index;
-        // });
+        this.api.runWith({
+            search_term: selectedOption.twitterSearchTerm,
+            symbol: selectedOption.stockSymbol,
+            from: this.from,
+            to: this.to,
+            type: 'number'
+        }, 'getCorrelation2Index').subscribe((index: any) => {
+            this.allMessagesCorrelation = index;
+        });
+        this.api.runWith({
+            search_term: selectedOption.twitterSearchTerm,
+            symbol: selectedOption.stockSymbol,
+            from: this.from,
+            to: this.to,
+            type: 'positive'
+        }, 'getCorrelation2Index').subscribe((index: any) => {
+            this.positiveMessagesCorrelation = index;
+        });
+        this.api.runWith({
+            search_term: selectedOption.twitterSearchTerm,
+            symbol: selectedOption.stockSymbol,
+            from: this.from,
+            to: this.to,
+            type: 'negative'
+        }, 'getCorrelation2Index').subscribe((index: any) => {
+            this.negativeMessagesCorrelation = index;
+        });
     }
 
     basicChart() {

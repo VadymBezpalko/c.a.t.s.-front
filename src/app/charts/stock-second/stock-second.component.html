@@ -15,6 +15,12 @@
         </div>
     </form>
 </div>
+<div class="row justify-content-center" *ngIf="">Pearson correlation coefficient:</div>
+<div class="row justify-content-center indexes" *ngIf="allMessagesCorrelation && positiveMessagesCorrelation && negativeMessagesCorrelation">
+    <span>All messages: {{allMessagesCorrelation}}</span>
+    <span>Positive messages: {{positiveMessagesCorrelation}}</span>
+    <span>Negative messages: {{negativeMessagesCorrelation}}</span>
+</div>
 <div #chart>
     <!-- Chart will appear here -->
 </div>

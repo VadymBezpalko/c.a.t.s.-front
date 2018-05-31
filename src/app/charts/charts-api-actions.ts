@@ -15,6 +15,9 @@ export class ChartsApiActions implements ApiActionContainer {
         },
         {
             action: 'getCorrelationIndex', method: 'POST', url: 'twitter/correlation'
+        },
+        {
+            action: 'getCorrelation2Index', method: 'POST', url: 'twitter/correlation_2'
         }
     ];
 }
