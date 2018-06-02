@@ -24,7 +24,7 @@ export class TwitterDataResolver implements Resolve<any> {
 }
 
 export const routes: Routes = [
-    { path: '', component: ChartsComponent },
+    { path: 'first', component: ChartsComponent },
     { path: 'second', component: StockSecondComponent },
 ];
 
